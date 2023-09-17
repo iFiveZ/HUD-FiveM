@@ -1,0 +1,84 @@
+<head>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+    <style>
+        body {
+            overflow: hidden;
+            color: #ffffff;
+            font-size: 14px;
+            font-family: cursive;
+        
+        }
+
+        .health-1 {
+           position: absolute;
+           top: 97.1vh;
+           width: 11vw;
+           right: 95vh;
+           background-color: #a7312171;
+           border: 2px solid #0000005b;
+        }
+        .health {
+            background-color: #e40c0c86;
+            width: 50%;
+            height: 1.62vh;
+            transition: all 700ms ease-out;
+        }
+
+
+        .sheild-2 {
+           position: absolute;
+           top: 97.1vh;
+           width: 11vw;
+           right: 74vh;
+           background-color: #279eff5b;
+           border: 2px solid #0000005b;
+        }
+
+        .sheild {
+        background-color: #0C356A;
+        width: 50%;
+        height: 1.70vh;
+        transition: all 700ms ease-out;
+       }
+
+    </style>
+</head>
+
+<body>
+    <div class="health-1">
+        <div class="health">
+            <span id="Health-text" class="ml-5 mr-3 text-1xl font-bold">0</span> 
+        </div>                                                                                                
+    </div>
+    <div class="sheild-2">
+        <div class="sheild">
+             <span id="Armor-text" class="ml-5 mr-3 text-1xl font-bold">0</span> 
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('message', function (event) {
+            switch (event.data.action) {
+                case 'update':
+                    var item = event.data;
+                     $('#Health-text').text(item.Health);
+                     $('#Armor-text').text(item.Armor);
+                    $('.health').css('width', event.data.Health + '%')
+                    $('.sheild').css('width', event.data.Armor + '%')
+                    break;
+
+                    if (true == true) { document.querySelector('#weapon').style.display = 'block'; }
+                    window.onload = function () {
+
+
+                    };
+
+
+            }
+        })
+
+    </script>
+</body>
